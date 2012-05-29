@@ -20,9 +20,9 @@
 "
 if !exists('g:ruby_conque_rspec_command')
   if executable('rspec')
-    let g:ruby_conque_rspec_command='rspec'
+    let g:ruby_conque_rspec_command='bundle exec rspec'
   elseif executable('spec')
-    let g:ruby_conque_rspec_command='spec'
+    let g:ruby_conque_rspec_command='bundle exec spec'
   endif
 
 endif
@@ -37,7 +37,7 @@ function! RunSingleConque(command)
   endtry
   " Keep track of the last command issued.
   let g:last_conque_command = a:command
-  let g:single_conque = conque_term#open(a:command, ['botright split', 'res 10'])
+  let g:single_conque = conque_term#open(a:command, ['botright split', 'res 30'])
 endfunction
 
 function! RunRubyCurrentFileConque()
